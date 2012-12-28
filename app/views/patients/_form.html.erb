@@ -1,0 +1,87 @@
+<%= form_for(@patient) do |f| %>
+  <% if @patient.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
+
+      <ul>
+      <% @patient.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_exam %><br />
+    <%= f.datetime_select :last_exam, :order => [:month, :day, :year], :date_separator => "" %>
+  </div>
+  <div class="field">
+    <%= f.label :current_dilation %><br />
+    <%= f.select :current_dilation, @patient.DILATIONS, :prompt => "Please select" %>
+  </div>
+  <div class="field">
+    <%= f.label :current_effacement %><br />
+    <%= f.select :current_effacement, @patient.EFFACEMENTS, :prompt => "Please select" %>
+  </div>
+  <div class="field">
+    <%= f.label :current_station %><br />
+    <%= f.select :current_station, @patient.STATIONS, :prompt => "Please select" %>
+  </div>
+  <div class="field">
+    <%= f.label :membrane %><br />
+    <%= f.select :membrane, @patient.MEMBRANES, :prompt => "Please select" %>
+  </div>
+  <div class="field">
+    <%= f.label :est_gest_age %><br />
+    <%= f.text_field :est_gest_age %>
+  </div>
+  <div class="field">
+    <%= f.label :gravidity %><br />
+    <%= f.select :gravidity, @patient.GRAVIDITIES, :prompt => "Please select" %>
+  </div>
+  <div class="field">
+    <%= f.label :parity %><br />
+    <%= f.select :parity, @patient.PARITIES, :prompt => "Please select"  %>
+  </div>
+  <div class="field">
+    <%= f.label :group_b_strep %><br />
+    <%= f.select :group_b_strep, @patient.GROUP_B_STREPS, :prompt => "Please select" %>
+  </div>
+  <div class="field">
+    <%= f.label :blood_type %><br />
+    <%= f.select :blood_type, @patient.BLOOD_TYPES, :prompt => "Please select" %>
+  </div>
+  <div class="field">
+    <%= f.label :anesthesia_interview %><br />
+    <%= f.select :anesthesia_interview, @patient.ANESTHESIA_INTERVIEWS, :prompt => "Please select" %>
+  </div>
+  <div class="field">
+    <%= f.label :body_mass_index %><br />
+    <%= f.text_field :body_mass_index %>
+  </div>
+ 		<%= f.hidden_field :room_id, :value => @patient_room %>
+ 	<!-- <div class="field">
+    <%= f.label :room_id %><br />
+    <%= f.number_field :room_id %>
+  </div> -->
+  <div class="field">
+    <%= f.label :attending_id %><br />
+    <%= f.collection_select(:attending_id, Attending.all, :id, :name_with_initial, :prompt => true) %>
+  </div>
+  <div class="field">
+    <%= f.label :nurse_id %><br /> 
+    <%= f.collection_select(:nurse_id, Nurse.all, :id, :name_with_initial, :prompt => true) %>
+  </div>
+  <br />
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

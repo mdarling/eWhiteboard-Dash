@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  room_number: MyString
+  room_occupied: false
+  position: 1
+
+two:
+  room_number: MyString
+  room_occupied: false
+  position: 1

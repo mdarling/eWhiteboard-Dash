@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  exam_time: 2012-12-26 17:31:08
+  dilation: 1
+  effacement: 1
+  station: 1
+  patient_id: 1
+
+two:
+  exam_time: 2012-12-26 17:31:08
+  dilation: 1
+  effacement: 1
+  station: 1
+  patient_id: 1
