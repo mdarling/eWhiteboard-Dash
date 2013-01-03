@@ -67,11 +67,6 @@
     <%= f.label :body_mass_index %><br />
     <%= f.text_field :body_mass_index %>
   </div>
- 		<%= f.hidden_field :room_id, :value => @patient_room %>
- 	<!-- <div class="field">
-    <%= f.label :room_id %><br />
-    <%= f.number_field :room_id %>
-  </div> -->
   <div class="field">
     <%= f.label :attending_id %><br />
     <%= f.collection_select(:attending_id, Attending.all, :id, :name_with_initial, :prompt => true) %>
@@ -81,6 +76,16 @@
     <%= f.collection_select(:nurse_id, Nurse.all, :id, :name_with_initial, :prompt => true) %>
   </div>
   <br />
+  
+  <%= f.fields_for :comment do |comment_fields| %>
+ 	<div class="field">
+    <%= comment_fields.label :cardiac_disease %><br />
+    <%= comment_fields.check_box :cardiac_disease %>
+  </div>
+  <% end %>
+  
+  <%= f.hidden_field :room_id, :value => @patient_room %>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

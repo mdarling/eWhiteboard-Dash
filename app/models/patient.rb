@@ -1,5 +1,5 @@
 class Patient < ActiveRecord::Base
-  attr_accessible :anesthesia_interview, :attending_id, :blood_type, :body_mass_index, :current_dilation, :current_effacement, :current_station, :est_gest_age, :first_name, :gravidity, :group_b_strep, :last_exam, :last_name, :membrane, :nurse_id, :parity, :room_id
+  attr_accessible :comment_attributes, :anesthesia_interview, :attending_id, :blood_type, :body_mass_index, :current_dilation, :current_effacement, :current_station, :est_gest_age, :first_name, :gravidity, :group_b_strep, :last_exam, :last_name, :membrane, :nurse_id, :parity, :room_id
   
   belongs_to :attending
   belongs_to :nurse
@@ -8,8 +8,10 @@ class Patient < ActiveRecord::Base
   before_save :save_exam_data
   
   has_many :last_exams, dependent: :destroy
+  has_one :comment, dependent: :destroy
   
   accepts_nested_attributes_for :last_exams
+  accepts_nested_attributes_for :comment
   
   def ANESTHESIA_INTERVIEWS
     [["NONE","NONE"], ["EPI","EPI"], ["CSE", "CSE"],["IT","IT"], ["W","W"]].freeze
@@ -70,7 +72,7 @@ class Patient < ActiveRecord::Base
 	end
 	
   private
-  
+  	
     def save_exam_data
       #cannot pop a nil, comparisons will result in an error
       unless self.last_exams.size == 0

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130103173758) do
+ActiveRecord::Schema.define(:version => 20130103175332) do
 
   create_table "attendings", :force => true do |t|
     t.string   "first_name"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20130103173758) do
     t.boolean  "cardiac_disease_free_text"
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
+    t.integer  "patient_id"
   end
 
   create_table "last_exams", :force => true do |t|

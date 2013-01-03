@@ -25,9 +25,9 @@ class PatientsController < ApplicationController
   # GET /patients/new.json
   def new
     @patient = Patient.new
-		
+		@patient.comment = Comment.new
 		@patient_room = params[:param1]
-		#@patient.room_id = @patient_room
+		
 		@room = Room.find(:first, :conditions => ["id = ?", @patient_room])
     
     respond_to do |format|
