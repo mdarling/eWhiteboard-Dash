@@ -1,4 +1,7 @@
 EWhiteboard::Application.routes.draw do
+  resources :comments
+
+
   get "whiteboard/index"
 
   resources :last_exams
