@@ -1,5 +1,3 @@
-<h1>Whiteboard</h1>
-
 <table>
   <tr>
     <th>ROOM</th>
@@ -26,7 +24,7 @@
     <td><%= link_to room.room_number, new_patient_path(:param1 => room.id) %></td>
     
     <% else %>
-    <td><%= link_to room.room_number, edit_patient_path(room.patient, :param1 => room.id) %></td>
+    <td><%= link_to room.room_number, edit_patient_path(room.patient, :param1 => room.id) %>
     <td><%= room.patient.name_with_initial %></td>
  		<td><%= room.patient.assigned_attending %></td>
  		<td><%= room.patient.assigned_nurse %></td>
@@ -50,8 +48,7 @@
 <br />
 
 <div>
-	<%= button_to "Edit Attendings", attendings_path, :method => "get" %>
-	<%= button_to "Edit Nurses", nurses_path, :method => "get" %>
+
 </div>
 
  
