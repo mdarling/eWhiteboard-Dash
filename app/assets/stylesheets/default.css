@@ -71,6 +71,7 @@ fieldset    { border: 0 !important; }
 #foot     { font-size: 1.2em; position: relative; z-index: 1; }
 
 td, th{
+
     padding-top:2px;
     padding-left:4px;
     padding-right:3px;
