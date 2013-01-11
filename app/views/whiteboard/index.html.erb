@@ -1,3 +1,5 @@
+<h1>Whiteboard</h1>
+
 <table>
   <tr>
     <th>ROOM</th>
@@ -21,10 +23,10 @@
 <% @rooms.each do |room| %>
   <tr>
     <% if room.patient == nil %>
-    <td><%= link_to room.room_number, new_patient_path(:param1 => room.id) %></td>
+    <td><%= button_to room.room_number, new_patient_path(:param1 => room.id) , :method => "get", :class => "classname" %></td>
     
     <% else %>
-    <td><%= link_to room.room_number, edit_patient_path(room.patient, :param1 => room.id) %>
+    <td><%= button_to room.room_number, edit_patient_path(room.patient, :param1 => room.id), :method => "get", :class => "classname" %>
     <td><%= room.patient.name_with_initial %></td>
  		<td><%= room.patient.assigned_attending %></td>
  		<td><%= room.patient.assigned_nurse %></td>
@@ -48,7 +50,8 @@
 <br />
 
 <div>
-
+	<%= button_to "Edit Attendings", attendings_path, :method => "get" %>
+	<%= button_to "Edit Nurses", nurses_path, :method => "get" %>
 </div>
 
  
