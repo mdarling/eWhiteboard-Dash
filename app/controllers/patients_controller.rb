@@ -26,9 +26,8 @@ class PatientsController < ApplicationController
   def new
     @patient = Patient.new
 		@patient.comment = Comment.new
-		@patient_room = params[:param1]
-		
-		@room = Room.find(:first, :conditions => ["id = ?", @patient_room])
+		@room = Room.find(params[:room_id])
+		@current_room_id = @room.id
     
     respond_to do |format|
       format.html # new.html.erb
@@ -39,24 +38,26 @@ class PatientsController < ApplicationController
   # GET /patients/1/edit
   def edit
     @patient = Patient.find(params[:id])
-    @patient_room = @patient.room_id
-    @room = Room.find(:first, :conditions => ["id = ?", @patient_room])
+    #@patient_room = @patient.room_id
+    @room = Room.find(params[:room_id])
+    @current_room_id = @room.id
+    
   end
 
   # POST /patients
   # POST /patients.json
   def create
     @patient = Patient.new(params[:patient])
-		
+    
     respond_to do |format|
       if @patient.save
         format.html { redirect_to "/whiteboard/index", notice: 'Patient was successfully created.' }
         format.json { render json: @patient, status: :created, location: @patient }
       else
-        format.html { render action: "new" }
+        format.html { render action: "new_room_patient" }
         format.json { render json: @patient.errors, status: :unprocessable_entity }
       end
-    end
+    end 
   end
 
   # PUT /patients/1

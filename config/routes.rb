@@ -7,7 +7,9 @@ EWhiteboard::Application.routes.draw do
   resources :last_exams
 
 
-  resources :rooms
+  resources :rooms do
+  	resources :patients 
+  end
 
 
   resources :attendings

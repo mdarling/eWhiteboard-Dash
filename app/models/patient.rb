@@ -7,6 +7,9 @@ class Patient < ActiveRecord::Base
   
   before_save :save_exam_data
   
+  validates :body_mass_index, :numericality => { :greater_than_or_equal_to => 10}
+  validates :first_name, :last_name, :presence => true
+  
   has_many :last_exams, dependent: :destroy
   has_one :comment, dependent: :destroy
   
@@ -105,5 +108,4 @@ class Patient < ActiveRecord::Base
         self.last_exams.push new_exam_data
       end      
     end
-
 end

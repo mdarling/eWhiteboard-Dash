@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130103175332) do
+ActiveRecord::Schema.define(:version => 20130123202153) do
 
   create_table "attendings", :force => true do |t|
     t.string   "first_name"
@@ -35,10 +35,46 @@ ActiveRecord::Schema.define(:version => 20130103175332) do
     t.boolean  "cardiomyopathy"
     t.boolean  "coronary_artery_disease"
     t.boolean  "pulmonary_hypertension"
-    t.boolean  "cardiac_disease_free_text"
+    t.string   "cardiac_disease_free_text"
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
     t.integer  "patient_id"
+    t.boolean  "airway"
+    t.boolean  "chorioamnionitis"
+    t.boolean  "macrosomia"
+    t.boolean  "hemophilia"
+    t.boolean  "atp"
+    t.boolean  "ttp"
+    t.boolean  "thrombocytopenia"
+    t.boolean  "vw_disease"
+    t.boolean  "factor_deficiency"
+    t.string   "hemophilia_free_text"
+    t.boolean  "thrombophilia"
+    t.boolean  "antithrombin"
+    t.boolean  "prot_c_deficiency"
+    t.boolean  "prot_s_deficiency"
+    t.boolean  "factor_v_leiden"
+    t.boolean  "lupus_anticoag"
+    t.string   "thrombophilia_free_text"
+    t.boolean  "anticoag_meds"
+    t.boolean  "diabetes"
+    t.boolean  "gestational_diabetes"
+    t.boolean  "gdma1"
+    t.boolean  "gdma2"
+    t.boolean  "type_1_diabetes"
+    t.boolean  "type_2_diabetes"
+    t.boolean  "multiple_gestation"
+    t.boolean  "twins"
+    t.boolean  "triplets"
+    t.boolean  "placenta_previa"
+    t.boolean  "placenta_accreta"
+    t.boolean  "placenta_percreta"
+    t.boolean  "prior_cs"
+    t.string   "location_of_placenta"
+    t.boolean  "placental_abruption"
+    t.boolean  "polyhydramnios"
+    t.boolean  "substance_abuse"
+    t.string   "general_free_text"
   end
 
   create_table "last_exams", :force => true do |t|

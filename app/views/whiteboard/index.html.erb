@@ -17,15 +17,16 @@
     <th>P</th>
     <th>GBS</th>
     <th>BT</th>
+    <th>COMMENTS</th>
   </tr>
 <% @rooms.sort! { |a,b| a.position <=> b.position} %>
 <% @rooms.each do |room| %>
   <tr>
     <% if room.patient == nil %>
-    <td><%= button_to room.room_number, new_patient_path(:param1 => room.id) , :method => "get", :class => "classname" %></td>
+    <td><%= link_to room.room_number, new_room_patient_path(:room_id => room), :class => "classname" %></td>
     
     <% else %>
-    <td><%= button_to room.room_number, edit_patient_path(room.patient, :param1 => room.id), :method => "get", :class => "classname" %>
+    <td><%= link_to room.room_number, edit_room_patient_path(:room_id => room, :id => room.patient), :class => "classname" %>
     <td><%= room.patient.name_with_initial %></td>
  		<td><%= room.patient.assigned_attending %></td>
  		<td><%= room.patient.assigned_nurse %></td>
@@ -41,6 +42,7 @@
  		<td><%= room.patient.parity %></td>
  		<td><%= room.patient.group_b_strep %></td>
  		<td><%= room.patient.blood_type %></td>
+		<td><%= room.patient.comment.abbr_comments %></td>   
     <% end %>
   </tr>
 <% end %>
