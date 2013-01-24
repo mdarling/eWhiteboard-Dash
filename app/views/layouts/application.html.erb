@@ -15,33 +15,22 @@ $('#yield').hide().fadeIn('slow');
 });
 	</script>
 </head>
- <body>
+<body>
+  <div id="outer">
+	<div id="header">
+        MedicalBoard
+	</div>
+	<div id="menu">
+		</div>
+	<div id="twocol">
+	<div id="data">
+	<%= yield%>
+	</div>
 
-    <ul class="noscreen">
-      <li><a href="#content">Přeskočit na obsah</a></li>
-      <li><a href="#mainMenu">Přeskočit na menu</a></li>
-    </ul>
-
-    <hr class="hidden" />
-
-    <!-- View -  -->
-    <div id="view">
-      <!-- Header (logotype, search, menus) -->
-      <div id="head">
-        <h1 id="logotype">Medical Board</h1>
-       
-      </div><!-- // Header -->
-      
-      <hr class="hidden" />
-      
-      <!-- Main content -->
-      <div id="content">
-      <div id="yield">
-        <%= yield %>
-      </div>
-    </div><!-- // View -->
-
-  </body>
+	</div>
+	<div id="footer">Copyright (c) Lonely Bloke Development.</div>
+  </div>
+</body>
 </html>
 
 
